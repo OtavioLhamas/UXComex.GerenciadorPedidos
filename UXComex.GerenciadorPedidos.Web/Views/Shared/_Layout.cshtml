@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UXComex - Gerenciador de Pedidos</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="~/css/_Layout.css" asp-append-version="true" />
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div id="sidebar-container">
+        <div class="list-group list-group-flush pt-4">
+            <a asp-controller="Home" asp-action="Index" class="list-group-item list-group-item-action py-3 d-flex align-items-center">
+                <i class="bi bi-speedometer2 me-3 fs-5"></i>
+                <span class="fs-6">Dashboard</span>
+            </a>
+            <a asp-controller="Client" asp-action="Index" class="list-group-item list-group-item-action py-3 d-flex align-items-center">
+                <i class="bi bi-people me-3 fs-5"></i>
+                <span class="fs-6">Clients</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center">
+                <i class="bi bi-box-seam me-3 fs-5"></i>
+                <span class="fs-6">Products</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center">
+                <i class="bi bi-file-earmark-text me-3 fs-5"></i>
+                <span class="fs-6">Orders</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main content area -->
+    <div id="content-container">
+
+        <!-- Top Navigation Bar -->
+        <nav class="navbar navbar-expand-lg rounded-3 shadow-sm mb-4">
+            <div class="container-fluid">
+                <button class="btn btn-outline-secondary me-3" id="sidebar-toggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">UXComex - Gerenciador de Pedidos</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main content render body -->
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Logic for expanding and collapsing the sidebar
+            $('#sidebar-toggle').on('click', function () {
+                $('#sidebar-container').toggleClass('collapsed');
+            });
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

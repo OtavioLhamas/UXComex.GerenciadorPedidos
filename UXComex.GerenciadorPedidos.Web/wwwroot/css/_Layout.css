@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    min-height: 100vh; /* Make sure the body takes at least the full viewport height */
+}
+
+#sidebar-container {
+    width: 250px;
+    min-height: 100vh;
+    background-color: #343a40;
+    color: #fff;
+    transition: all 0.3s ease; /* Smooth transition for collapsing/expanding */
+}
+
+    #sidebar-container.collapsed {
+        margin-left: -250px; /* Hides the sidebar by moving it out of view */
+    }
+
+    #sidebar-container .list-group {
+        border-radius: 0;
+    }
+
+    #sidebar-container .list-group-item {
+        background-color: #343a40;
+        color: #adb5bd;
+        border: none;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+    }
+
+        #sidebar-container .list-group-item:hover,
+        #sidebar-container .list-group-item.active {
+            background-color: #0d6efd;
+            color: #fff;
+        }
+
+#content-container {
+    flex-grow: 1; /* Allow content to take up the remaining space */
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #f8f9fa;
+}

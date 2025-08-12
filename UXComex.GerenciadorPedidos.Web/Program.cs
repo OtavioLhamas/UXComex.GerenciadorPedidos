@@ -14,8 +14,12 @@ namespace UXComex.GerenciadorPedidos.Web
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddScoped<IDbConnectionFactory, SqlDbConnectionFactory>();
+
             builder.Services.AddScoped<IClientRepository, ClientRepository>();
             builder.Services.AddScoped<IClientService, ClientService>();
+
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IProductService, ProductService>();
 
             var app = builder.Build();
 

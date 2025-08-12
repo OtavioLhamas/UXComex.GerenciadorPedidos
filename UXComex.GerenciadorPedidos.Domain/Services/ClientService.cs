@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
 using UXComex.GerenciadorPedidos.Domain.Entities;
 using UXComex.GerenciadorPedidos.Domain.Interfaces;
 using UXComex.GerenciadorPedidos.Domain.Models;
@@ -72,7 +71,6 @@ namespace UXComex.GerenciadorPedidos.Domain.Services
         /// </summary>
         public async Task<PagedResult<Client>> SearchAsync(string searchTerm, int pageNumber, int pageSize)
         {
-            // The service can perform additional validation here if needed.
             return await _clientRepository.SearchAndPaginateAsync(searchTerm, pageNumber, pageSize);
         }
 

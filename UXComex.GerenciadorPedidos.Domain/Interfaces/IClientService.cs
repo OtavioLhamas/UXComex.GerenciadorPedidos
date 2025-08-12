@@ -1,4 +1,5 @@
 ﻿using UXComex.GerenciadorPedidos.Domain.Entities;
+using UXComex.GerenciadorPedidos.Domain.Interfaces;
 using UXComex.GerenciadorPedidos.Domain.Models;
 
 namespace UXComex.GerenciadorPedidos.Domain.Interfaces

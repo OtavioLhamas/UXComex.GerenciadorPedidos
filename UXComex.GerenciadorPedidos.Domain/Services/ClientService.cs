@@ -72,6 +72,7 @@ namespace UXComex.GerenciadorPedidos.Domain.Services
         /// </summary>
         public async Task<PagedResult<Client>> SearchAsync(string searchTerm, int pageNumber, int pageSize)
         {
+            // The service can perform additional validation here if needed.
             return await _clientRepository.SearchAndPaginateAsync(searchTerm, pageNumber, pageSize);
         }
 

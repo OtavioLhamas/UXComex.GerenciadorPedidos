@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace UXComex.Domain.Interfaces
+namespace UXComex.GerenciadorPedidos.Domain.Interfaces
 {
     /// <summary>
     /// Defines an interface for creating and managing database connections.

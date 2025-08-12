@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.Data;
 using Microsoft.Data.SqlClient;
-using UXComex.Domain.Interfaces;
+using UXComex.GerenciadorPedidos.Domain.Interfaces;
 
-namespace UXComex.Dal
+namespace UXComex.GerenciadorPedidos.Dal
 {
     /// <summary>
     /// A concrete implementation of IDbConnectionFactory for SQL Server.

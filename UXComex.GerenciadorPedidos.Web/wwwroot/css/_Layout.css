@@ -5,6 +5,7 @@ body {
 
 #sidebar-container {
     width: 250px;
+    min-width: 250px;
     min-height: 100vh;
     background-color: #343a40;
     color: #fff;
@@ -36,8 +37,31 @@ body {
 #content-container {
     flex-grow: 1; /* Allow content to take up the remaining space */
     padding: 20px;
+    width: 100%;
+    transition: all 0.3s;
 }
 
 .navbar {
     background-color: #f8f9fa;
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    #sidebar {
+        position: fixed;
+        height: 100%;
+        z-index: 1000;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    #content.expanded {
+        margin-left: 250px;
+    }
 }

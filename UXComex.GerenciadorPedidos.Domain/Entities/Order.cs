@@ -1,10 +1,17 @@
-﻿namespace UXComex.GerenciadorPedidos.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace UXComex.GerenciadorPedidos.Domain.Entities
 {
     public class Order
     {
+        [Key]
         public int Id { get; set; }
         public int ClientId { get; set; }
-        public DateTime OrderDate { get; set; }
+        [ForeignKey("ClientId")]
+        public virtual Client Client { get; set; }
+        public DateTime CreationDate { get; set; }
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal TotalValue { get; set; }
         public OrderStatus Status { get; set; }
 

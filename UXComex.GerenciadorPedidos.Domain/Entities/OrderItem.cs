@@ -1,4 +1,6 @@
-﻿namespace UXComex.GerenciadorPedidos.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace UXComex.GerenciadorPedidos.Domain.Entities
 {
     public class OrderItem
     {

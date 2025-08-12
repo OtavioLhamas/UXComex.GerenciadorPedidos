@@ -33,7 +33,7 @@ namespace UXComex.GerenciadorPedidos.Domain.Services
             {
                 throw new Exception("A client with this email already exists.");
             }
-            // The database has the defautl value for RegistrationDate,
+            // The database has the default value for RegistrationDate,
             // but again, for demonstration purposes, we set it here.
             client.RegistrationDate = DateTime.Now;
 

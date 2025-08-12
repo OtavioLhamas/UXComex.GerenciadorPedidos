@@ -19,7 +19,7 @@ CREATE TABLE Products (
 CREATE TABLE Orders (
     Id INT PRIMARY KEY IDENTITY(1,1),
     ClientId INT NOT NULL,
-    OrderDate DATETIME NOT NULL DEFAULT GETDATE(),
+    CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
     TotalValue DECIMAL(18, 2) NOT NULL,
     Status NVARCHAR(50) NOT NULL,
     FOREIGN KEY (ClientId) REFERENCES Clients(Id)
@@ -33,4 +33,10 @@ CREATE TABLE OrderItems (
     UnitPrice DECIMAL(18, 2) NOT NULL,
     FOREIGN KEY (OrderId) REFERENCES Orders(Id),
     FOREIGN KEY (ProductId) REFERENCES Products(Id)
+);
+
+CREATE TABLE Notifications (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Message NVARCHAR(500) NOT NULL,
+    CreatedDate DATETIME NOT NULL
 );

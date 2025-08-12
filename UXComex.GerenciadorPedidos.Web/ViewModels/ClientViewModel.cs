@@ -3,24 +3,18 @@ using UXComex.GerenciadorPedidos.Domain.Entities;
 
 namespace UXComex.GerenciadorPedidos.Web.ViewModels
 {
-    /// <summary>
-    /// ViewModel for the Client entity.
-    /// It's used to transfer data between the controller and the views,
-    /// providing a clean separation of concerns and preventing over-posting.
-    /// It also contains presentation-specific validation attributes.
-    /// </summary>
     public class ClientViewModel
     {
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Client name is required.")]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [Required(ErrorMessage = "Email is required.")]
         [EmailAddress(ErrorMessage = "Invalid email format.")]
-        public string Email { get; set; }
+        public required string Email { get; set; }
 
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
 
         public DateTime RegistrationDate { get; set; }
 

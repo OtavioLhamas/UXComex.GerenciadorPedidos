@@ -1,4 +1,4 @@
-﻿namespace UXComex.GerenciadorPedidos.Web.Models
+﻿namespace UXComex.GerenciadorPedidos.Web.ViewModels
 {
     public class ErrorViewModel
     {

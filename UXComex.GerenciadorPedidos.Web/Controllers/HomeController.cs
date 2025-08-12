@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using UXComex.GerenciadorPedidos.Web.Models;
+using UXComex.GerenciadorPedidos.Web.ViewModels;
 
 namespace UXComex.GerenciadorPedidos.Web.Controllers
 {

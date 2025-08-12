@@ -45,8 +45,12 @@ namespace UXComex.GerenciadorPedidos.Dal.Repositories
         }
 
         /// <summary>
-        /// Searches and paginates clients.
+        /// Search clients based on name or email and paginates the results.
         /// </summary>
+        /// <param name="searchTerm"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <returns>Filtered list of clients with the pagination info.</returns>
         public async Task<PagedResult<Client>> SearchAndPaginateAsync(string searchTerm, int pageNumber, int pageSize)
         {
             var sql = "SELECT COUNT(*) FROM Clients WHERE Name LIKE @SearchTerm OR Email LIKE @SearchTerm;" +

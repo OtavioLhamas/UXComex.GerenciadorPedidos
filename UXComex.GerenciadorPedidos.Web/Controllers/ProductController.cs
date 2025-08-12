@@ -57,7 +57,7 @@ namespace UXComex.GerenciadorPedidos.Web.Controllers
             return View(productViewModel);
         }
 
-        // GET: /Product/Edit/5
+        // GET: /Product/Edit/{id}
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -75,7 +75,7 @@ namespace UXComex.GerenciadorPedidos.Web.Controllers
             return View(productViewModel);
         }
 
-        // POST: /Product/Edit/5
+        // POST: /Product/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, ProductViewModel productViewModel)
@@ -101,7 +101,7 @@ namespace UXComex.GerenciadorPedidos.Web.Controllers
             return View(productViewModel);
         }
 
-        // POST: /Product/Delete/5
+        // POST: /Product/Delete/{id}
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

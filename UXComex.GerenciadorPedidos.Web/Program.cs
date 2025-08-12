@@ -13,6 +13,7 @@ namespace UXComex.GerenciadorPedidos.Web
 
             builder.Services.AddControllersWithViews();
 
+            // Native DI container registration
             builder.Services.AddScoped<IDbConnectionFactory, SqlDbConnectionFactory>();
 
             builder.Services.AddScoped<IClientRepository, ClientRepository>();

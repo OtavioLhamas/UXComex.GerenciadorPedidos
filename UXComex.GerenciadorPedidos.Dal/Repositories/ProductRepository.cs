@@ -45,8 +45,12 @@ namespace UXComex.GerenciadorPedidos.Dal.Repositories
         }
 
         /// <summary>
-        /// Searches and paginates products.
+        /// Search products based on name and paginates the results.
         /// </summary>
+        /// <param name="searchTerm"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <returns>Filtered list of products with the pagination info.</returns>
         public async Task<PagedResult<Product>> SearchAndPaginateAsync(string searchTerm, int pageNumber, int pageSize)
         {
             var sql = "SELECT COUNT(*) FROM Products WHERE Name LIKE @SearchTerm;" +

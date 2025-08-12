@@ -46,7 +46,8 @@ namespace UXComex.GerenciadorPedidos.Domain.Services
             Validate(client);
 
             // Check if the client exists before updating
-            var existingClient = await _clientRepository.GetByIdAsync(client.Id) ?? throw new Exception("Client not found.");
+            var existingClient = await _clientRepository.GetByIdAsync(client.Id) 
+                ?? throw new Exception("Client not found.");
             
             await _clientRepository.UpdateAsync(client);
         }
@@ -77,7 +78,7 @@ namespace UXComex.GerenciadorPedidos.Domain.Services
         /// <summary>
         /// Validates the Client object based on business rules.
         /// </summary>
-        public static void Validate(Client client)
+        internal static void Validate(Client client)
         {
             if (string.IsNullOrWhiteSpace(client.Name))
             {

@@ -53,12 +53,10 @@ namespace UXComex.GerenciadorPedidos.Domain.Services
 
         public async Task UpdateAsync(Product product)
         {
-            // Perform business logic validation
             Validate(product);
 
-            var existingProduct = _productRepository.GetByIdAsync(product.Id)
+            var existingProduct = await _productRepository.GetByIdAsync(product.Id) 
                 ?? throw new Exception("Product not found.");
-
             await _productRepository.UpdateAsync(product);
         }
 
@@ -85,7 +83,7 @@ namespace UXComex.GerenciadorPedidos.Domain.Services
 
             if (product.StockQuantity < 0)
             {
-                throw new ArgumentException("Product stock quantity cannot be negative.", nameof(product.StockQuantity));
+                throw new ArgumentException("Product stock quantity cannot be negative.");
             }
 
             // TODO:

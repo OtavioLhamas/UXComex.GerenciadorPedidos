@@ -47,7 +47,6 @@ namespace UXComex.GerenciadorPedidos.Dal.Repositories
                         }
 
                         // Simulate notification of a new order
-                        // TODO: Create Notifications table and use logger.
                         var logSql = "INSERT INTO Notifications (Message, CreatedDate) VALUES (@Message, GETDATE())";
                         var logMessage = $"New order created with ID {newOrderId} for client ID {order.ClientId}.";
                         await connection.ExecuteAsync(logSql, new { Message = logMessage }, transaction);
@@ -163,10 +162,30 @@ namespace UXComex.GerenciadorPedidos.Dal.Repositories
         /// <returns></returns>
         public async Task UpdateStatusAsync(Order order)
         {
-            var sql = "UPDATE Orders SET Status = @Status WHERE Id = @Id";
             using (var connection = _connectionFactory.CreateConnection())
             {
-                await connection.ExecuteAsync(sql, new { order.Id, Status = order.Status.ToString() });
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        var sql = "UPDATE Orders SET Status = @Status WHERE Id = @Id";
+
+                        await connection.ExecuteAsync(sql, new { order.Id, Status = order.Status.ToString() }, transaction);
+
+                        // Simulate notification of a order update
+                        var logSql = "INSERT INTO Notifications (Message, CreatedDate) VALUES (@Message, GETDATE())";
+                        var logMessage = $"Order #{order.Id} status updated to {order.Status}.";
+                        await connection.ExecuteAsync(logSql, new { Message = logMessage }, transaction);
+
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
             }
         }
     }

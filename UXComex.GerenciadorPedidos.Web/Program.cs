@@ -1,3 +1,8 @@
+using UXComex.GerenciadorPedidos.Dal;
+using UXComex.GerenciadorPedidos.Dal.Repositories;
+using UXComex.GerenciadorPedidos.Domain.Interfaces;
+using UXComex.GerenciadorPedidos.Domain.Services;
+
 namespace UXComex.GerenciadorPedidos.Web
 {
     public class Program
@@ -7,6 +12,10 @@ namespace UXComex.GerenciadorPedidos.Web
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<IDbConnectionFactory, SqlDbConnectionFactory>();
+            builder.Services.AddScoped<IClientRepository, ClientRepository>();
+            builder.Services.AddScoped<IClientService, ClientService>();
 
             var app = builder.Build();
 
